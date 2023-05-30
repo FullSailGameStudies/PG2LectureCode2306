@@ -38,6 +38,11 @@ namespace Day04
             */
 
 
+            List<string> A = new() { "Wonder Woman", "Batman", "Superman", "Flash", "Aquaman", "Blue Beetle", "Lobo" };
+            //call your bubble sort method and pass the list to it
+            //print the list after calling the method to prove it was sorted
+
+
 
 
 
