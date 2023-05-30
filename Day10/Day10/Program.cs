@@ -17,6 +17,18 @@
             the using() statement can ensure that the file is closed
 
     */
+    public enum Powers
+    {
+        Money, Jumping, Speed, Strength, Swimming
+    }
+    class Superhero
+    {
+        public string Name { get; set; }
+        public string Secret { get; set; }
+        public Powers Power { get; set; }
+    }
+
+
     internal class Program
     {
         static void Main(string[] args)
@@ -55,6 +67,14 @@
 
 
 
+            /*
+                CHALLENGE 1:
+                    Create a List of Superhero.
+                    Write the list to a CSV file             
+            */
+
+
+
 
 
             /*
@@ -70,10 +90,12 @@
             string csvString = "Batman;Bruce Wayne;Bats;The Dark Knight";
             string[] data = csvString.Split(';');
 
-            /*
-                CHALLENGE 1:
 
-                    read the data in from the file above and split the line to get the data
+
+            /*
+                CHALLENGE 2:
+
+                    Open the CSV file and read the data into a new list of superheroes
              
             */
 
@@ -92,6 +114,11 @@
 
 
 
+            /*
+             * Challenge 3:
+                Serialize (write) the list of superheroes to a json file
+            */
+
 
 
 
@@ -104,6 +131,13 @@
 
             */
 
+
+
+            /*
+             
+                Challenge 4: deserialize the jla.json file into a list of superheroes
+
+            */
         }
     }
 }
