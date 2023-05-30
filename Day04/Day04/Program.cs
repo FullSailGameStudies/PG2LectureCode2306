@@ -9,39 +9,6 @@ namespace Day04
     {
         static void Main(string[] args)
         {
-            //Recursion, Sorting, Searching
-
-            /*
-                ╔═════════╗ 
-                ║Recursion║
-                ╚═════════╝ 
-             
-                Recursion happens when a method calls itself. This creates a recursive loop.
-                
-                All recursive methods need an exit condition, something that prevents the loop from continuing.
-              
-            */
-            int N = 0;
-            RecursiveLoop(N);
-            Console.ResetColor();
-
-
-            /*
-                CHALLENGE 1:
-
-                    convert this for loop to a recursive method called Bats. Call Bats here in Main.
-             
-                    for(int i = 0;i < 100;i++)
-                    {
-                        Console.Write((char)78);
-                        Console.Write((char)65);
-                        Console.Write(' ');
-                    }
-            */
-
-
-
-
 
             /*
                 ╔═══════╗ 
@@ -50,7 +17,7 @@ namespace Day04
              
                 Sorting is used to order the items in a list/array is a specific way
              
-                CHALLENGE 2:
+                CHALLENGE 1:
 
                     Convert this BubbleSort pseudo-code into a C# method             
                      
@@ -69,6 +36,49 @@ namespace Day04
                     end procedure
                     
             */
+
+
+
+
+
+
+            /*
+                ╔═════════╗ 
+                ║Recursion║
+                ╚═════════╝ 
+             
+                Recursion happens when a method calls itself. This creates a recursive loop.
+                
+                All recursive methods need an exit condition, something that prevents the loop from continuing.
+              
+            */
+            int N = 0;
+            RecursiveLoop(N);
+            Console.ResetColor();
+
+
+            /*
+                CHALLENGE 2:
+
+                    convert this for loop to a recursive method called Bats. Call Bats here in Main.
+             
+                    for(int i = 0;i < 100;i++)
+                    {
+                        Console.Write((char)78);
+                        Console.Write((char)65);
+                        Console.Write(' ');
+                    }
+            */
+
+            //
+            //call Bats here
+            //
+            Console.WriteLine();
+            List<int> b = new() { 66, 65, 84, 77, 65, 78, 33, 33 };
+            foreach (var item in b) Console.Write((char)item);
+            Console.WriteLine();
+
+
 
         }
 
