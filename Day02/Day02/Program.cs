@@ -78,12 +78,10 @@ namespace Day02
             /*
                 CHALLENGE 1:
 
-                    Write a method to curve the grade variable.
-                    1) pass it in by reference
-                    2) calculate a 5% curve
-                    3) curve the parameter in the method
-                    4) return the curve amount
-             
+                    Write a method to create and fill a list of floats with grades.
+                    1) pass it in a list variable by reference
+                    2) add 10 grades to the list
+
             */
             double grade = randy.NextDouble() * 100;
 
@@ -109,8 +107,9 @@ namespace Day02
                 CHALLENGE 2:
 
                     Write a method to calculate the stats on a list of grades
-                    1) create a list of grades in main and add a few grades to it
-                    2) create a method to calculate the min, max, and avg. use out parameters to pass this data back from the method.
+                    1) create a method to calculate the min, max, and avg. 
+                        pass in the list of grades.
+                        use out parameters to pass this data back from the method.
                     3) print out the min, max, and avg
              
             */
@@ -140,7 +139,8 @@ namespace Day02
             /*
                 CHALLENGE 3:
 
-                    Using the list of grades you created in CHALLENGE 2, remove the min and max grades from the list.
+                    Using the list of grades you created, 
+                    Remove all the failing grades (grades < 59.5).
                     Print the grades.
             */
 

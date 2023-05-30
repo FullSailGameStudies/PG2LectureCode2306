@@ -75,11 +75,15 @@ namespace Day01
             int number = 5;
             int plusOne = AddOne(number);
 
+
             /*
                 CHALLENGE 1:
 
-                    call the Sum method on the t1000 calculator. Print the sum that is returned.
-             
+                    Add an isEven method to the calculator.
+                    It should take 1 parameter and return a bool.
+
+                    Call the method on the t1000 calculator instance and print the results.
+
             */
             Calculator t1000 = new Calculator();
 
@@ -99,12 +103,6 @@ namespace Day01
             */
             List<string> names = new List<string>(); //this list stores strings and only strings.
 
-            /*
-                CHALLENGE 2:
-
-                    Create a list that stores floats. Call the variable grades.
-             
-            */
 
 
 
@@ -126,9 +124,10 @@ namespace Day01
             letters.Add('!');
 
             /*
-                CHALLENGE 3:
+                CHALLENGE 2:
 
-                    Add a few grades to the grades list you created in CHALLENGE 2.
+                    Create a list that stores floats. Call the variable grades.
+                    Add a few grades to the grades list.
              
             */
 
@@ -154,8 +153,21 @@ namespace Day01
             foreach (var letter in letters)
                 Console.Write($" {letter}");
 
+
             /*
-                CHALLENGE 4:
+                CHALLENGE 3:
+
+                    loop over the grades vector and print out each grade
+
+            */
+
+
+
+
+
+
+            /*
+                BOSS CHALLENGE:
 
                     1) Fix the Average method of the calculator class to calculate the average of the list parameter.
                     2) Call the Average method on the t1000 variable and pass your grades list to the method.
