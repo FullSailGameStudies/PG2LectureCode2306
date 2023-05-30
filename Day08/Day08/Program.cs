@@ -125,6 +125,7 @@
                 CHALLENGE 4:
                     Override Weapon's ShowMe method in the Pistol method.
                     In Pistol's version, call the base version and print out the rounds and magCapacity
+                    Fix the loop to remove the if-elseif.
             */
         }
     }
