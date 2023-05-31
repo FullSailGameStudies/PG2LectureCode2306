@@ -53,6 +53,8 @@ namespace Day01
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
+            Console.WriteLine("Hello Gotham!");
+
             /*
               Calling a method
                 use the methods name.
@@ -100,19 +102,8 @@ namespace Day01
                 List<T>  - the T is a placeholder for a type. It is a "Generic Type Parameter" to the class.
                 
                 When you want to create a List variable, replace T with whatever type of data you want to store in the List.
-            */
-            List<string> names = new List<string>(); //this list stores strings and only strings.
 
-
-
-
-
-
-
-            /*   
-                ╔═════════╗ 
-                ║ List<T> ║
-                ╚═════════╝ 
+            
 
                 [  Adding items to a List  ]
 
@@ -120,6 +111,9 @@ namespace Day01
                 1) on the initializer. 
                 2) using the Add method. 
             */
+            List<string> names = new List<string>(); //this list stores strings and only strings.
+
+
             List<char> letters = new List<char>() { 'B', 'a', 't', 'm', 'a', 'n' };
             letters.Add('!');
 
