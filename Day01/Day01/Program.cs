@@ -128,9 +128,13 @@ namespace Day01
                 1) on the initializer. 
                 2) using the Add method. 
             */
-            List<string> names = new List<string>(); //this list stores strings and only strings.
+            List<string> names;//null
+            names = new List<string>(); //this list stores strings and only strings.
+            names.Add("The Bat");
+            names.Add("The Greatest Detective");//add the item to the END of the list
 
-
+            string[] best = new string[3] { "Batman", "Bruce", "NOT Aquaman" };
+            
             List<char> letters = new List<char>() { 'B', 'a', 't', 'm', 'a', 'n' };
             letters.Add('!');
 
@@ -141,6 +145,9 @@ namespace Day01
                     Add a few grades to the grades list.
              
             */
+            List<float> grades = new List<float>();
+            for (int bob = 0; bob < 10; bob++) 
+                grades.Add((float)(rando.NextDouble() * 100));
 
 
 
