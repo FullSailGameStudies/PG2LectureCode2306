@@ -49,11 +49,19 @@ namespace Day01
      */
     internal class Program
     {
+        static void Print(int number)
+        {
+            //$ - interpolated string
+            Console.WriteLine($"{number,10}");
+        }
+
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
             Console.WriteLine("Hello Gotham!");
+            int num = 5;
+            Print(num);//pass by value (COPY)
 
             /*
               Calling a method
@@ -87,8 +95,17 @@ namespace Day01
                     Call the method on the t1000 calculator instance and print the results.
 
             */
-            Calculator t1000 = new Calculator();
+            Random rando = new Random();
 
+            Calculator t1000 = new Calculator();//creating an instance
+            int result = t1000.Sum(5, 2);
+            Console.WriteLine($"The sum of 5 and 2 is {result}.");
+
+            bool isEven = t1000.IsEven(num);
+            Console.WriteLine($"Is {num} even? {isEven}");
+
+
+            Calculator.WhoAmI();
 
 
 
@@ -183,6 +200,19 @@ namespace Day01
 
     class Calculator
     {
+        public static void WhoAmI()
+        {
+            Console.WriteLine("I am a Texas Instrument.");
+        }
+
+        public bool IsEven(int number)
+        {
+            return number % 2 == 0;
+            //if (number % 2 == 0)
+            //    return true;
+            //return false;
+        }
+
         public int Sum(int num1, int num2)
         {
             return num1 + num2;
