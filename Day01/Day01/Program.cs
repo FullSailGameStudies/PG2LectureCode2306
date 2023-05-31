@@ -55,6 +55,13 @@ namespace Day01
             Console.WriteLine($"{number,10}");
         }
 
+        static void Info(List<string> names)
+        {
+            //Capacity: length of the internal array
+            //Count: # of items in the list
+            Console.WriteLine($"Count: {names.Count}\tCapacity: {names.Capacity}");
+        }
+
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
@@ -95,7 +102,6 @@ namespace Day01
                     Call the method on the t1000 calculator instance and print the results.
 
             */
-            Random rando = new Random();
 
             Calculator t1000 = new Calculator();//creating an instance
             int result = t1000.Sum(5, 2);
@@ -129,9 +135,26 @@ namespace Day01
                 2) using the Add method. 
             */
             List<string> names;//null
-            names = new List<string>(); //this list stores strings and only strings.
+            names = new List<string>(11); //this list stores strings and only strings.
+            Info(names);//Count: 0  Capacity: 0
+
             names.Add("The Bat");
+            Info(names);//Count: 1  Capacity: 4
             names.Add("The Greatest Detective");//add the item to the END of the list
+            names.Add("Batman");
+            names.Add("Alfred");
+            names.Add("Gordon");
+            Info(names);//Count: 5  Capacity: 8 
+            names.Add("Barbara");
+            names.Add("Joker");
+            names.Add("Poison Ivy");
+            names.Add("Bane");
+            Info(names);//Count: 9  Capacity: 11? 12?  
+            names.Add("Nightwing");
+            names.Add("Riddler");
+            names.Add("Calendar Man");
+            names.Add("Harley Quinn");
+            Info(names);//Count: 15  Capacity: 11? 22?  
 
             string[] best = new string[3] { "Batman", "Bruce", "NOT Aquaman" };
             
@@ -145,6 +168,7 @@ namespace Day01
                     Add a few grades to the grades list.
              
             */
+            Random rando = new Random();
             List<float> grades = new List<float>();
             for (int bob = 0; bob < 10; bob++) 
                 grades.Add((float)(rando.NextDouble() * 100));
@@ -168,14 +192,21 @@ namespace Day01
             for (int i = 0; i < letters.Count; i++)
                 Console.Write($" {letters[i]}");
 
-            foreach (var letter in letters)
+            foreach (char letter in letters)
                 Console.Write($" {letter}");
+
+            foreach (string name in names)
+            {
+                Console.WriteLine(name);
+            }
+
+            //anonymous types
 
 
             /*
                 CHALLENGE 3:
 
-                    loop over the grades vector and print out each grade
+                    loop over the grades list and print out each grade
 
             */
 
