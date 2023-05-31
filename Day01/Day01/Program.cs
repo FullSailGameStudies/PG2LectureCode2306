@@ -209,6 +209,28 @@ namespace Day01
                     loop over the grades list and print out each grade
 
             */
+            Console.WriteLine("-------PG2 GRADES--------");
+            for (int i = 0; i < grades.Count; i++)
+            {
+                Console.WriteLine(grades[i]);
+            }
+
+
+            Console.ReadKey();
+            Console.WriteLine("-------PG2 GRADES--------");
+            foreach (float grade in grades)
+            {
+                //ternary operator
+                Console.ForegroundColor = (grade < 59.5) ? ConsoleColor.Red :
+                                          (grade < 69.5) ? ConsoleColor.DarkYellow :
+                                          (grade < 79.5) ? ConsoleColor.Yellow :
+                                          (grade < 89.5) ? ConsoleColor.Blue :
+                                          ConsoleColor.Green;
+
+                Console.WriteLine($"\t{grade,7:N2}");
+                Console.ResetColor();
+            }
+            Console.ResetColor();
 
 
 
