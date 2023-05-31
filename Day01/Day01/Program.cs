@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Day01
 {
@@ -245,6 +246,8 @@ namespace Day01
                     3) print the average that is returned.
              
             */
+            float avg = t1000.Average(grades);
+            Console.WriteLine($"The average grade: {avg:N2}");
 
 
             Console.ReadKey(true);
@@ -281,11 +284,16 @@ namespace Day01
 
         public float Average(List<float> numbers)
         {
-            float avg = 0F;
-
-            //loop over the numbers and calculate the average
-
-            return avg;
+            return numbers.Average();
+            //float avg = 0F;
+            //float sum = 0;
+            ////loop over the numbers and calculate the average
+            //foreach (float number in numbers)
+            //{
+            //    sum += number;
+            //}
+            //avg = sum / numbers.Count;
+            //return avg;
         }
     }
 }
