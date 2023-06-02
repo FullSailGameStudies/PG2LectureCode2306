@@ -218,15 +218,18 @@ namespace Day02
             /*
                 CHALLENGE 4:
 
-                    Write a method called batTheme.
-                    Add an optional parameter to determine how many "na" are printed. The default value should be 13.
+                    Write a method called BatTheme.
+                    Add an optional parameter to determine how many "na" are printed. 
+                        The default value should be 13.
 
-                    If the calling code does not pass a value for the parameter, print "na na na na na na na na na na na na na Batman".
+                    If the calling code does not pass a value for the parameter, 
+                        print "na na na na na na na na na na na na na Batman".
                     If a value is passed, print the number of "na" equal to the value.
                     EX: if 6 is passed, print "na na na na na na Batman"
 
             */
-
+            BatTheme();
+            BatTheme(25);
 
 
 
@@ -239,6 +242,13 @@ namespace Day02
                     3) print the message
              
             */
+        }
+
+        private static void BatTheme(int nas = 13)
+        {
+            for (int i = 0; i < nas; i++)
+                Console.Write("na ");
+            Console.WriteLine("Batman!");
         }
 
         private static void PrintGrades(List<float> grades)
