@@ -237,11 +237,43 @@ namespace Day02
                 CHALLENGE 5:
 
                     Write a ColorWriteLine method to print a message with a foreground color in the console.
-                    1) add a string message parameter AND an optional color parameter. Choose whatever default color you want.
+                    1) add a string message parameter AND an optional color parameter. 
+                        Choose whatever default color you want.
                     2) in the method, set the foreground color to the optional parameter
                     3) print the message
              
             */
+            ColorWriteLine("Hello Gotham! I am the hero you need.");
+            ColorWriteLine("Aquaman sucks!", ConsoleColor.Red);
+
+
+            int[] nums = new int[] { 1, 2, 3, 4, 5 };
+            List<int> numbers = nums.ToList();
+
+            numbers = new List<int>(nums);
+
+            numbers = new List<int>();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                numbers.Add(nums[i]);
+            }
+
+            List<int> numbers2 = numbers;//will this copy the list??
+            numbers2 = numbers.ToList();
+            numbers2 = new List<int>(numbers);
+            numbers2 = new List<int>();
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                numbers2.Add(numbers[i]);
+            }
+
+        }
+
+        private static void ColorWriteLine(string message, ConsoleColor fore = ConsoleColor.DarkCyan)
+        {
+            Console.ForegroundColor = fore;
+            Console.WriteLine(message);
+            Console.ResetColor();
         }
 
         private static void BatTheme(int nas = 13)
