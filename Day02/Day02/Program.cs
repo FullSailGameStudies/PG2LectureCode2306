@@ -73,7 +73,12 @@ namespace Day02
                     This is because the parameter is actually just a new name for the other variable.
             */
             string spider = "Spiderman";
+            Console.WriteLine(spider);
             bool isEven = PostFix(ref spider);
+            Console.WriteLine(spider);
+
+            string hulk = "Hulk";
+            isEven = PostFix(ref hulk);
 
             /*
                 CHALLENGE 1:
@@ -83,7 +88,17 @@ namespace Day02
                     2) add 10 grades to the list
 
             */
-            double grade = randy.NextDouble() * 100;
+            List<float> grades = null;// new List<float>();
+            GetGrades(ref grades);
+            if (grades != null)
+            {
+                Console.WriteLine("----GRADES-----");
+                foreach (var grade in grades)
+                {
+                    Console.WriteLine($"{grade:N2}");
+                } 
+            }
+            Console.ReadKey();
 
 
 
@@ -97,11 +112,21 @@ namespace Day02
                     the method MUST assign a value to the parameter before returning
 
             */
-            ConsoleColor randoColor; //don't have to initialize it
-            GetRandomColor(out randoColor);
-            Console.BackgroundColor = randoColor;
-            Console.WriteLine("Hello Gotham!");
+            ConsoleColor foreground, background; //don't have to initialize it
+            int x, y;
+            while (true)
+            {
+                Console.SetCursorPosition(
+                    randy.Next(Console.WindowWidth), 
+                    randy.Next(Console.WindowHeight));
+                GetRandomColor(out foreground, out background);
+                Console.BackgroundColor = background;
+                Console.ForegroundColor = foreground;
+                Console.Write("Hello Gotham!"); 
+            }
 
+            Console.ResetColor();
+            Console.ReadKey();
 
             /*
                 CHALLENGE 2:
@@ -147,20 +172,85 @@ namespace Day02
 
 
 
+
+
+
+            /*   
+                ╔═══════════════════════════════╗ 
+                ║Parameters: optional parameters║
+                ╚═══════════════════════════════╝ 
+                
+                Unless specified, parameters to a method are required.
+                However, you can make parameters optional, meaning when calling the method, you aren't required to pass values for the optional parameters.
+
+                REQUIREMENT:
+                    - all optional parameters have to be at the end of the list of parameters
+                    - in the list of parameters, assign a value to any parameter you want to be optional
+            */
+            string file = "highScores";
+            string postfile = PostFix(file); //if you don't pass a value, the default value will be used for the optional parameter
+            postfile = PostFix(file, 5); //if a value is passed, it will be used for the optional parameter
+
+
+            /*
+                CHALLENGE 4:
+
+                    Write a method called batTheme.
+                    Add an optional parameter to determine how many "na" are printed. The default value should be 13.
+
+                    If the calling code does not pass a value for the parameter, print "na na na na na na na na na na na na na Batman".
+                    If a value is passed, print the number of "na" equal to the value.
+                    EX: if 6 is passed, print "na na na na na na Batman"
+
+            */
+
+
+
+
+            /*
+                CHALLENGE 5:
+
+                    Write a ColorWriteLine method to print a message with a foreground color in the console.
+                    1) add a string message parameter AND an optional color parameter. Choose whatever default color you want.
+                    2) in the method, set the foreground color to the optional parameter
+                    3) print the message
+             
+            */
         }
 
-        private static void GetRandomColor(out ConsoleColor outColor)
+        private static void GetGrades(ref List<float> studentGrades)
+        {
+            //create a list
+            //loop 
+            //  create a grade
+            //  add the grade to the list
+            studentGrades = new List<float>();
+            for (int i = 0; i < 10; i++)
+            {
+
+                studentGrades.Add((float)randy.NextDouble() * 100);
+            }
+
+        }
+
+        private static bool GetRandomColor(out ConsoleColor foreColor, out ConsoleColor backColor)
         {
             //the method MUST initialize the outColor parameter
-            outColor = (ConsoleColor)randy.Next(16);
-
+            foreColor = (ConsoleColor)randy.Next(16);
+            backColor = (ConsoleColor)randy.Next(16);
+            return foreColor == backColor;
         }
 
         static bool PostFix(ref string hero) //hero is now an alias to the variable used when calling PostFix. In this case, hero is an alias to the spider variable.
         {
             int postFix = randy.Next(100);
-            hero += $"-{postFix}"; //updating hero now also updates spider
+            //hero += $"-{postFix}"; //updating hero now also updates spider
             return postFix % 2 == 0; //isEven
+        }
+
+        static string PostFix(string fileName, int postFixNumber = 1) //postFixNumber is optional
+        {
+            return fileName + postFixNumber;
         }
     }
 }
