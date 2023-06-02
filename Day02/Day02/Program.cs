@@ -92,11 +92,7 @@ namespace Day02
             GetGrades(ref grades);
             if (grades != null)
             {
-                Console.WriteLine("----GRADES-----");
-                foreach (var grade in grades)
-                {
-                    Console.WriteLine($"{grade:N2}");
-                } 
+                PrintGrades(grades);
             }
             Console.ReadKey();
 
@@ -113,12 +109,11 @@ namespace Day02
 
             */
             ConsoleColor foreground, background; //don't have to initialize it
-            int x, y;
-            while (true)
+            //while (true)
             {
-                Console.SetCursorPosition(
-                    randy.Next(Console.WindowWidth), 
-                    randy.Next(Console.WindowHeight));
+                //Console.SetCursorPosition(
+                //    randy.Next(Console.WindowWidth), 
+                //    randy.Next(Console.WindowHeight));
                 GetRandomColor(out foreground, out background);
                 Console.BackgroundColor = background;
                 Console.ForegroundColor = foreground;
@@ -138,9 +133,8 @@ namespace Day02
                     3) print out the min, max, and avg
              
             */
-
-
-
+            CalculateStats(grades, out float min, out float max, out float avg);
+            Console.WriteLine($"Min: {min}\tMax: {max}\tAverage: {avg}");
 
 
 
@@ -158,6 +152,11 @@ namespace Day02
             */
             List<string> dc = new() { "Batman", "Wonder Woman", "Aquaman", "Superman", "Aquaman" };
             bool found = dc.Remove("Aquaman");
+            foreach (var hero in dc)
+            {
+                Console.Write($"{hero} ");
+            }
+            Console.WriteLine();
 
             dc.RemoveAt(dc.Count - 1);//removes the last item
 
@@ -168,7 +167,31 @@ namespace Day02
                     Remove all the failing grades (grades < 59.5).
                     Print the grades.
             */
+            //for (int i = 0; i < grades.Count; i++)
+            //{
+            //    if (grades[i] < 59.5)
+            //    {
+            //        grades.RemoveAt(i);
+            //        i--;
+            //    }
+            //}
 
+            //for (int i = 0; i < grades.Count; )
+            //{
+            //    if (grades[i] < 59.5)
+            //        grades.RemoveAt(i);
+            //    else i++;
+            //}
+            //reverse for loop
+            for (int i = grades.Count - 1; i >= 0; i--)
+            {
+                if (grades[i] < 59.5)
+                {
+                    grades.RemoveAt(i);
+                }
+            }
+
+            PrintGrades(grades);
 
 
 
@@ -218,6 +241,32 @@ namespace Day02
             */
         }
 
+        private static void PrintGrades(List<float> grades)
+        {
+            Console.WriteLine("----GRADES-----");
+            foreach (var grade in grades)
+            {
+                Console.WriteLine($"{grade:N2}");
+            }
+        }
+
+        private static void CalculateStats(List<float> grades, out float min, out float max, out float avg)
+        {
+            //min = grades.Min();
+            //max = grades.Max();
+            //avg = grades.Average();
+            min = float.MaxValue;
+            max = float.MinValue;
+            avg = 0;
+            foreach (var grade in grades)
+            {
+                min = Math.Min(min, grade);
+                max = Math.Max(max, grade);
+                avg += grade;
+            }
+            avg /= grades.Count;
+        }
+
         private static void GetGrades(ref List<float> studentGrades)
         {
             //create a list
@@ -227,7 +276,6 @@ namespace Day02
             studentGrades = new List<float>();
             for (int i = 0; i < 10; i++)
             {
-
                 studentGrades.Add((float)randy.NextDouble() * 100);
             }
 
