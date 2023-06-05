@@ -7,9 +7,42 @@ namespace Day04
 {
     internal class Program
     {
+
+        static void BubbleSort(List<string> A)
+        {
+            int n = A.Count;
+            bool swapped;
+            do
+            {
+                swapped = false;
+                for (int i = 1; i <= n-1; i++)
+                {
+                    if (A[i-1].CompareTo(A[i]) > 0)
+                    {
+                        string temp = A[i-1];
+                        A[i-1] = A[i];
+                        A[i] = temp;
+                        swapped = true;
+                    }
+                }
+                n = n - 1;
+            } while (swapped);
+        }
         static void Main(string[] args)
         {
-
+            string s1 = "Batman", s2 = "Aquaman";
+            //CompareTo, or Compare
+            // returns...
+            // -1  LESS THAN
+            //  0  EQUAL TO
+            //  1  GREATER THAN
+            int compareResult = s1.CompareTo(s2);
+            if(compareResult == 0)
+                Console.WriteLine($"{s1} EQUALS {s2}");
+            else if(compareResult < 0)
+                Console.WriteLine($"{s1} LESS THAN {s2}");
+            else if (compareResult > 0)
+                Console.WriteLine($"{s1} GREATER THAN {s2}");
             /*
                 ╔═══════╗ 
                 ║Sorting║
@@ -41,8 +74,12 @@ namespace Day04
             List<string> A = new() { "Wonder Woman", "Batman", "Superman", "Flash", "Aquaman", "Blue Beetle", "Lobo" };
             //call your bubble sort method and pass the list to it
             //print the list after calling the method to prove it was sorted
-
-
+            Console.WriteLine("___UNSORTED___");
+            foreach (string s in A) Console.WriteLine(s);
+            BubbleSort(A);
+            Console.WriteLine("___SORTED___");
+            foreach (string s in A) Console.WriteLine(s);
+            Console.ReadKey();
 
 
 
