@@ -5,6 +5,7 @@ using System.Threading;
 
 namespace Day04
 {
+
     internal class Program
     {
 
@@ -28,8 +29,15 @@ namespace Day04
                 n = n - 1;
             } while (swapped);
         }
+
+        static void Recur(int N)
+        {
+            Console.WriteLine(N);
+            Recur(N+1);
+        }
         static void Main(string[] args)
         {
+            //Recur(5);
             string s1 = "Batman", s2 = "Aquaman";
             //CompareTo, or Compare
             // returns...
@@ -95,7 +103,7 @@ namespace Day04
               
             */
             int N = 0;
-            RecursiveLoop(N);
+            //RecursiveLoop(N);
             Console.ResetColor();
 
 
@@ -115,6 +123,7 @@ namespace Day04
             //
             //call Bats here
             //
+            Bats();
             Console.WriteLine();
             List<int> b = new() { 66, 65, 84, 77, 65, 78, 33, 33 };
             foreach (var item in b) Console.Write((char)item);
@@ -124,10 +133,22 @@ namespace Day04
 
         }
 
+        static void Bats(int i = 0)
+        {
+            if(i < 100)
+            {
+                Console.Write((char)78);
+                Console.Write((char)65);
+                Console.Write(' ');
+                Bats(i+1);
+            }
+        }
+
 
         static void RecursiveLoop(int N)
         {
             //an Exit Condition. This will stop the loop when N >= Console.WindowWidth
+            //if (N == Console.WindowWidth) return;
             if (N < Console.WindowWidth)
             {
                 Console.BackgroundColor = ConsoleColor.Red;
