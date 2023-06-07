@@ -35,7 +35,7 @@ namespace Day04
                         4) if reach the end of the list, return -1 which means not found
                     
             */
-            List<int> nums = new List<int>() { 1, 2, 3, 4, 5, 420 };//N = 6 O(N)
+            List<int> nums = new List<int>() { 1, 2, 420, 3, 4, 5};//N = 6 O(N)
             int numberToFind = 1000;
             int foundIndex = LinearSearch(nums, numberToFind);
             if(foundIndex == -1) Console.WriteLine($"{numberToFind} was NOT found.");
@@ -58,7 +58,18 @@ namespace Day04
 
             Dictionary<Weapon, int> backpack = new Dictionary<Weapon, int>();//will store the counts of each kind of weapon
 
+            Dictionary<string, float> menu = new()
+            {
+                //{ key, value }  key-value-pair
+                { "Beef Wellington", 28.99F },
+                { "NY Strip", 18.99F },
+                { "Crunchy Roll", 9.99F }
+            };
+            menu.Add("Quarter Pounder", 5.63F);
+            menu.Add("Belgian Waffles", 12.99F);
 
+            menu["Hawaiian Pizza"] = 19.99F;
+            menu["Lobster Pomodore"] = 59.99F;
 
 
             /*  
@@ -82,11 +93,12 @@ namespace Day04
             backpack[Weapon.Spear] = 1;
 
             List<string> students = new() { "Jessica", "Jasen", "Paulo", "Christian", "Daniel", "Anthony", "Mackenzie", "Ryan", "Elijah", "Tyler", "ZaMere", "Xavier",
-            "Jose", "Jack", "Raul", "Dillon", "David", "Damien", "Kenya"};
+            "Jose", "Jack", "Raul", "Dillon", "David", "Damien", "Kenya", "James"};
             /*
                 CHALLENGE 2:
 
-                    Create a Dictionary that stores names (string) and grades. Call the variable grades.
+                    Create a Dictionary that stores names (string) and grades. 
+                    Call the variable grades.
              
             */
             /*
