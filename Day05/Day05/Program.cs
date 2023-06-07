@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Threading;
 
 namespace Day04
@@ -93,7 +94,19 @@ namespace Day04
             backpack[Weapon.Spear] = 1;
 
             List<string> students = new() { "Jessica", "Jasen", "Paulo", "Christian", "Daniel", "Anthony", "Mackenzie", "Ryan", "Elijah", "Tyler", "ZaMere", "Xavier",
-            "Jose", "Jack", "Raul", "Dillon", "David", "Damien", "Kenya", "James"};
+            "Jose", "Jack", "Raul", "Dillon", "David", "Damien", "Kenya", "James", "Saul"};
+
+            Dictionary<string, double> grades = new()
+            {
+                {"Bruce", 100 },
+                {"Clark", 90 },
+                {"Arthur", 35 }
+            };
+            Random rando = new();
+            foreach (string student in students)
+            {
+                grades.Add(student, rando.NextDouble() * 100);
+            }
             /*
                 CHALLENGE 2:
 
@@ -126,12 +139,24 @@ namespace Day04
             foreach (KeyValuePair<Weapon,int> weaponCount in backpack)
                 Console.WriteLine($"You have {weaponCount.Value} {weaponCount.Key}");
 
+            Console.OutputEncoding = Encoding.UTF8;
+            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("de-DE");
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("de-DE");
+            
+            Console.WriteLine(" Welcome to Applebees ");
+            foreach (KeyValuePair<string,float> menuItem in menu)
+            {
+                float price = menuItem.Value;
+                string name = menuItem.Key;
+                Console.WriteLine($"{price,8:C2} {name}");
+            }
 
 
             /*
                 CHALLENGE 4:
 
-                    Loop over your grades dictionary and print each student name and grade.
+                    Loop over your grades dictionary and 
+                    print each student name and grade.
              
             */
 
