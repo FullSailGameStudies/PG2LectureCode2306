@@ -210,6 +210,21 @@ namespace Day04
                     else print out a message that the student was not found
              
             */
+            do
+            {
+                Console.Write("Student to find: ");
+                string studentName = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(studentName)) break;
+
+                if (grades.TryGetValue(studentName, out double studentGrade))
+                {
+                    Console.Write($"{studentName} has a grade of ");
+                    PrintGrade(studentGrade);
+                    Console.WriteLine();
+                }
+                else
+                    Console.WriteLine($"{studentName} is not in PG2 this month.");
+            } while (true);
 
 
 
@@ -230,14 +245,34 @@ namespace Day04
             */
             backpack[Weapon.Mace] = 0; //sell all maces
 
+            lobsterPrice = menu[lobsterItem];
+
 
 
             /*
                 CHALLENGE 6:
 
-                    Pick any student and curve the grade (add 5) that is stored in the grades dictionary
+                    Pick any student and curve the grade (add 5) 
+                    that is stored in the grades dictionary
              
             */
+
+            do
+            {
+                Console.Write("Student to curve: ");
+                string studentName = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(studentName)) break;
+
+                if (grades.TryGetValue(studentName, out double studentGrade))
+                {
+                    grades[studentName] = Math.Min(100, studentGrade + 5);
+                    PrintGrades(grades);
+                    Console.WriteLine($"{studentName} grade was curved from {studentGrade:N2} to {grades[studentName]:N2}.");
+                    
+                }
+                else
+                    Console.WriteLine($"{studentName} is not in PG2 this month.");
+            } while (true);
         }
 
         private static void PrintGrades(Dictionary<string, double> course)
