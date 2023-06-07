@@ -140,8 +140,8 @@ namespace Day04
                 Console.WriteLine($"You have {weaponCount.Value} {weaponCount.Key}");
 
             Console.OutputEncoding = Encoding.UTF8;
-            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("de-DE");
-            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("de-DE");
+            //Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("de-DE");
+            //Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("de-DE");
             
             Console.WriteLine(" Welcome to Applebees ");
             foreach (KeyValuePair<string,float> menuItem in menu)
@@ -159,6 +159,7 @@ namespace Day04
                     print each student name and grade.
              
             */
+            PrintGrades(grades);
 
 
 
@@ -219,6 +220,27 @@ namespace Day04
                     Pick any student and curve the grade (add 5) that is stored in the grades dictionary
              
             */
+        }
+
+        private static void PrintGrades(Dictionary<string, double> course)
+        {
+            Console.WriteLine("------PG2 2306------");
+            foreach (var student in course)
+            {
+                PrintGrade(student.Value);
+                Console.WriteLine($" {student.Key}");
+            }
+        }
+
+        private static void PrintGrade(double grade)
+        {
+            Console.ForegroundColor = (grade < 59.5) ? ConsoleColor.Red :
+                                      (grade < 69.5) ? ConsoleColor.DarkYellow :
+                                      (grade < 79.5) ? ConsoleColor.Yellow :
+                                      (grade < 89.5) ? ConsoleColor.Blue :
+                                                       ConsoleColor.Green;
+            Console.Write($"{grade,7:N2}");
+            Console.ResetColor();
         }
 
         private static int LinearSearch(List<int> nums, int numberToFind)
