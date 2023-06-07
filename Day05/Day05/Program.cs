@@ -64,13 +64,22 @@ namespace Day04
                 //{ key, value }  key-value-pair
                 { "Beef Wellington", 28.99F },
                 { "NY Strip", 18.99F },
-                { "Crunchy Roll", 9.99F }
+                { "Crunchy Roll", 9.99F },
+                //{ "Crunchy Roll", 8.99F } //throws an exception
             };
             menu.Add("Quarter Pounder", 5.63F);
-            menu.Add("Belgian Waffles", 12.99F);
+            menu.TryAdd("Belgian Waffles", 12.99F);
+            try
+            {
+                menu.Add("Belgian Waffles", 14.99F);//throws an exception
+            }
+            catch (Exception) //HANDLES the exception
+            {
+            }
 
             menu["Hawaiian Pizza"] = 19.99F;
             menu["Lobster Pomodore"] = 59.99F;
+            menu["Lobster Pomodore"] = 69.99F;//does NOT throw an exception
 
 
             /*  
@@ -184,10 +193,19 @@ namespace Day04
                 Console.WriteLine($"{Weapon.Spear} count: {spearCount}");
 
 
+            bool isFound = menu.ContainsKey("CheeseBurger");
+            string lobsterItem = "Lobster Pomodore";
+            isFound = menu.TryGetValue(lobsterItem, out float lobsterPrice);
+            if(isFound)
+            {
+                Console.WriteLine($"The price of {lobsterItem} is {lobsterPrice:C2}");
+            }
+
             /*
                 CHALLENGE 5:
 
-                    Using either of the 2 ways to check for a key, look for a specific student in the dictionary. 
+                    Using either of the 2 ways to check for a key, 
+                    look for a specific student in the dictionary. 
                     If the student is found, print out the student's grade
                     else print out a message that the student was not found
              
