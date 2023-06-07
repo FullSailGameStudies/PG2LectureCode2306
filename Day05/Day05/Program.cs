@@ -23,7 +23,9 @@ namespace Day04
                 CHALLENGE 1:
 
                     Convert Linear Search algorithm into a method. 
-                        The method should take 2 parameters: list of ints to search, int to search for.
+                        The method should take 2 parameters: 
+                            list of ints to search
+                            int to search for.
                         The method should return -1 if NOT found or the index if found.
                      
                     The algorithm:
@@ -33,7 +35,11 @@ namespace Day04
                         4) if reach the end of the list, return -1 which means not found
                     
             */
-
+            List<int> nums = new List<int>() { 1, 2, 3, 4, 5, 420 };//N = 6 O(N)
+            int numberToFind = 1000;
+            int foundIndex = LinearSearch(nums, numberToFind);
+            if(foundIndex == -1) Console.WriteLine($"{numberToFind} was NOT found.");
+            else                 Console.WriteLine($"{numberToFind} was found at index {foundIndex}.");
 
 
             /*   
@@ -47,16 +53,10 @@ namespace Day04
                 
                 When you want to create a Dictionary variable, replace TKey with whatever type of data you want to use for the keys and
                 replace TValue with the type you want to use for the values.
+
             */
-           
+
             Dictionary<Weapon, int> backpack = new Dictionary<Weapon, int>();//will store the counts of each kind of weapon
-
-            /*
-                CHALLENGE 2:
-
-                    Create a Dictionary that stores names (string) and grades. Call the variable grades.
-             
-            */
 
 
 
@@ -65,6 +65,7 @@ namespace Day04
                 ╔══════════════════════════╗ 
                 ║ Dictionary<TKey, TValue> ║
                 ╚══════════════════════════╝ 
+
 
                 [  Adding items to a Dictionary  ]
 
@@ -80,6 +81,14 @@ namespace Day04
             backpack.Add(Weapon.Axe, 2);
             backpack[Weapon.Spear] = 1;
 
+            List<string> students = new() { "Jessica", "Jasen", "Paulo", "Christian", "Daniel", "Anthony", "Mackenzie", "Ryan", "Elijah", "Tyler", "ZaMere", "Xavier",
+            "Jose", "Jack", "Raul", "Dillon", "David", "Damien", "Kenya"};
+            /*
+                CHALLENGE 2:
+
+                    Create a Dictionary that stores names (string) and grades. Call the variable grades.
+             
+            */
             /*
                 CHALLENGE 3:
 
@@ -173,6 +182,21 @@ namespace Day04
                     Pick any student and curve the grade (add 5) that is stored in the grades dictionary
              
             */
+        }
+
+        private static int LinearSearch(List<int> nums, int numberToFind)
+        {
+            int index = -1;
+
+            for (int i = 0; i < nums.Count; i++)
+            {
+                if (nums[i] == numberToFind)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            return index;
         }
     }
 }
