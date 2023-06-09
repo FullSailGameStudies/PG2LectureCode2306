@@ -114,7 +114,8 @@ namespace Day04
             Random rando = new();
             foreach (string student in students)
             {
-                grades.Add(student, rando.NextDouble() * 100);
+                double randomGrade = rando.NextDouble() * 100;
+                grades.Add(student, randomGrade);
             }
             /*
                 CHALLENGE 2:

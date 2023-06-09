@@ -56,7 +56,46 @@ namespace Day06
             Dictionary<string, double> grades = new();
             foreach (var student in students)
                 grades.Add(student, rando.NextDouble() * 100);
-            
+
+
+            PrintGrades(grades);
+            do
+            {
+                Console.Write("Student to drop: ");
+                string studentName = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(studentName)) break;
+
+                if (grades.Remove(studentName))
+                {
+                    PrintGrades(grades);
+                    Console.WriteLine($"{studentName} was removed from PG2.");
+                }
+                else
+                    Console.WriteLine($"{studentName} is not in PG2 this month.");
+            } while (true);
+        }
+
+
+
+        private static void PrintGrades(Dictionary<string, double> course)
+        {
+            Console.WriteLine("------PG2 2306------");
+            foreach (var student in course)
+            {
+                PrintGrade(student.Value);
+                Console.WriteLine($" {student.Key}");
+            }
+        }
+
+        private static void PrintGrade(double grade)
+        {
+            Console.ForegroundColor = (grade < 59.5) ? ConsoleColor.Red :
+                                      (grade < 69.5) ? ConsoleColor.DarkYellow :
+                                      (grade < 79.5) ? ConsoleColor.Yellow :
+                                      (grade < 89.5) ? ConsoleColor.Blue :
+                                                       ConsoleColor.Green;
+            Console.Write($"{grade,7:N2}");
+            Console.ResetColor();
         }
     }
 }
