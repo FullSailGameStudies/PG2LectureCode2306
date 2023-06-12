@@ -107,6 +107,10 @@ namespace Day07
                     Add an auto-property for Name
             */
 
+            myRide.Make = "Tesla";//calls the set
+            myRide.Model = "CyberTruck";
+            Console.WriteLine($"{myRide.Make} {myRide.Model}");
+
 
 
 
