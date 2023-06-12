@@ -43,7 +43,7 @@ namespace Day07
         {
             Car myRide;//null
             //create a Car instance
-            myRide = new Car();
+            myRide = new Car("Tesla", "CyberTruck");//calling a constructor
             //myRide._year = int.MinValue;
 
             /*
@@ -107,8 +107,8 @@ namespace Day07
                     Add an auto-property for Name
             */
 
-            myRide.Make = "Tesla";//calls the set
-            myRide.Model = "CyberTruck";
+            //myRide.Make = "Tesla";//calls the set
+            //myRide.Model = "CyberTruck";
             Console.WriteLine($"{myRide.Make} {myRide.Model}");
 
 
@@ -140,7 +140,7 @@ namespace Day07
                 CHALLENGE 4:
                     Add a constructor to the Person class to initialize Age and Name
             */
-
+            Person alfred = new Person("Alfred Pennyworth", 119);
 
 
 
