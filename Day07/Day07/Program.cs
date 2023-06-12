@@ -141,8 +141,10 @@ namespace Day07
                     Add a constructor to the Person class to initialize Age and Name
             */
             Person alfred = new Person("Alfred Pennyworth", 119);
-
-
+            alfred.WhoAmI();//'this' points to alfred
+            Person bruce = new Person("Bruce Wayne", 35);
+            bruce.WhoAmI();
+            Person.PeopleReport();
 
 
 
@@ -165,10 +167,7 @@ namespace Day07
                 CHALLENGE 5:
                     write an ItsMyBirthday method. increment age and print out a happy message.
             */
-
-
-
-
+            bruce.ItsMyBirthday();
 
 
             /*                              
