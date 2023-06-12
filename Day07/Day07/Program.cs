@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Day07CL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -40,12 +41,16 @@ namespace Day07
     {
         static void Main(string[] args)
         {
+            Car myRide;//null
+            //create a Car instance
+            myRide = new Car();
+            //myRide._year = int.MinValue;
 
             /*
                 CHALLENGE 1:
 
                     Create a Person class in Day07CL project.
-                    Right-Click the Day07CL project and select "Add > Class..."
+                    Right-Click the Day07CL project and select "Add > New Item..."
              
             */
 
