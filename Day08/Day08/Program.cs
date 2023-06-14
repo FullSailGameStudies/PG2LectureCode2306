@@ -183,10 +183,10 @@ namespace Day08
             foreach (Weapon gameObject in gameObjects)
             {
                 gameObject.ShowMe();
-                if(gameObject is Pistol bang)//downcasting
-                    Console.WriteLine($"\tRounds: {bang.Rounds}\tMag capacity: {bang.MagCapacity}");
-                else if(gameObject is Knife knife3)
-                    Console.WriteLine($"\tLength: {knife3.Length}\tSerrated: {knife3.Serrated}");
+                //if(gameObject is Pistol bang)//downcasting
+                //    Console.WriteLine($"\tRounds: {bang.Rounds}\tMag capacity: {bang.MagCapacity}");
+                //else if(gameObject is Knife knife3)
+                //    Console.WriteLine($"\tLength: {knife3.Length}\tSerrated: {knife3.Serrated}");
             }
 
 

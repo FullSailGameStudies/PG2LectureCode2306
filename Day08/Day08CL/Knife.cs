@@ -16,5 +16,10 @@ namespace Day08CL
             Length = length;
             Serrated = serrated;
         }
+        public override void ShowMe()
+        {
+            base.ShowMe();
+            Console.WriteLine($"\tLength: {Length}\tSerrated: {Serrated}");
+        }
     }
 }
