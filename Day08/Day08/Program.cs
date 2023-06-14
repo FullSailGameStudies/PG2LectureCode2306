@@ -32,6 +32,11 @@ namespace Day08
 
         public int Age { get; set; }
         public string Name { get; set; }
+
+        public virtual void Eat(string food)
+        {
+            Console.WriteLine($"Time to eat some {food}! Nom nom.");
+        }
     }
     enum Superpower
     {
@@ -47,6 +52,14 @@ namespace Day08
         {
             Alias = alias;
             Power = power;
+        }
+
+        //if you want to EXTEND the base functionality, call the base version
+        //if you do NOT want the base behavior, don't call the base version
+        public override void Eat(string food)
+        {
+            base.Eat(food);//extending the base version
+            Console.WriteLine("Break over! Now back to saving the world!");
         }
     }
     internal class Program
@@ -202,9 +215,18 @@ namespace Day08
 
                 CHALLENGE 4:
                     Override Weapon's ShowMe method in the Pistol method.
-                    In Pistol's version, call the base version and print out the rounds and magCapacity
+                    In Pistol's version, call the base version and 
+                        print out the rounds and magCapacity
                     Fix the loop to remove the if-elseif.
             */
+
+            Person alfred = new Person(85, "Alfred");
+            Superhero batman = new("Batman", Superpower.Money, 35, "Bruce Wayne");
+            alfred.Eat("Potato");
+            batman.Eat("Lobster Pomodoro");
+
+            Person bruce = batman;
+            bruce.Eat("Lobster Pomodoro");
         }
     }
 }
