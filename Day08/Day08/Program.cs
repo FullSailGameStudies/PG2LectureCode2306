@@ -18,6 +18,35 @@
 
 
      */
+
+    class Person
+    {
+        public Person(int age, string name)
+        {
+            Age = age;
+            //?? null-coalescing operator
+            Name = name;// ?? throw new ArgumentNullException(nameof(name));
+        }
+
+        public int Age { get; set; }
+        public string Name { get; set; }
+    }
+    enum Superpower
+    {
+        HeatRay, DimensionalTravel, Money, Strength, Swimming, Flight
+    }
+    class Superhero : Person 
+    {
+        public string Alias { get; set; }
+        public Superpower Power { get; set; }
+
+        public Superhero(string alias, Superpower power, int age, string name) 
+            : base(age, name)
+        {
+            Alias = alias;
+            Power = power;
+        }
+    }
     internal class Program
     {
         static void Main(string[] args)
@@ -26,7 +55,8 @@
             /*
                 CHALLENGE 1:
 
-                    In the Day08CL project, add a new class, Pistol, that derives from Weapon.
+                    In the Day08CL project, add a new class, Pistol, 
+                    that derives from Weapon.
                     Pistol should have properties for Rounds and MagCapacity.
                     Add a constructor that calls the base constructor
              
