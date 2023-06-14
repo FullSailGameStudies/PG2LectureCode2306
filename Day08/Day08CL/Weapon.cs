@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Day08CL
 {
-    public abstract class Weapon
+    public abstract class GameObject
+    {
+
+    }
+    public abstract class Weapon : GameObject
     {
         public Weapon(int range, int damage)
         {

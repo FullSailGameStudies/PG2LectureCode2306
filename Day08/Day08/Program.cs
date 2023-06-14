@@ -87,10 +87,24 @@ namespace Day08
                     Create a List of Weapon. Create several Pistols and add them to the list of weapons.
             */
 
+            int num = 5;
+            long bigNum = num; //IMPLICIT cast
+            num = (int)bigNum; //EXPLICIT cast
 
+            Knife sting = new Knife(5, 100, 2, false);
 
+            //UPCASTING: 
+            //  casting from a DERIVED variable (pew) to a BASE variable (weapon)
+            //  does NOT make a new instance
+            Weapon weapon = pew;
+            weapon = sting;
+            GameObject gameObj = pew;
 
+            List<GameObject> gameObjects = new();
+            gameObjects.Add(sting); 
+            gameObjects.Add(pew);
 
+            //THIS IS ALWAYS SAFE!
 
 
 
@@ -128,7 +142,28 @@ namespace Day08
                     Downcast to a Pistol and print the rounds and mag capacity of each pistol
             */
 
+            weapon = pew;//pistol
 
+            //1) explicit cast inside a try-catch
+            try
+            {
+                Knife stabber = (Knife)weapon;
+            }
+            catch (Exception)
+            {
+            }
+
+            //2) use the 'as' keyword
+                //if doesn't work, will assign NULL to the variable
+            Knife? knife = weapon as Knife;
+            if(knife != null ) 
+                Console.WriteLine(knife.Length);
+
+            //3) use the 'is' keyword with a pattern match
+            if(weapon is Knife knife2)
+            {
+                Console.WriteLine(knife2.Length);
+            }
 
 
 
