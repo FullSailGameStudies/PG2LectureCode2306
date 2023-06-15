@@ -23,6 +23,7 @@ namespace Day08
 
     class Person
     {
+        protected string _ssn;
         public Person(int age, string name)
         {
             Age = age;
@@ -58,6 +59,7 @@ namespace Day08
         //if you do NOT want the base behavior, don't call the base version
         public override void Eat(string food)
         {
+            Console.WriteLine(_ssn);
             base.Eat(food);//extending the base version
             Console.WriteLine("Break over! Now back to saving the world!");
         }
