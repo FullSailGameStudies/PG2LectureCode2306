@@ -11,6 +11,10 @@
             }
         }
     }
+    enum Superpower
+    {
+        Money, Strength, Flight, Swimming
+    }
     internal class Program
     {
         static void Main(string[] args)
