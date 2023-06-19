@@ -1,4 +1,6 @@
-﻿namespace Day10
+﻿using Newtonsoft.Json;
+
+namespace Day10
 {
 
     /*
@@ -200,33 +202,46 @@
                 Saving the state (data) of objects
 
             */
+            Superhero bats = new Superhero() { Name = "Batman", Secret = "Bruce Wayne", Power = Powers.Money };
+
+            string heroJsonFileName = "TheBat.json";
+            filePath = Path.Combine(directories, heroJsonFileName);
+            //using (StreamWriter sw = new StreamWriter(filePath))
+            //{
+            //    using (JsonTextWriter jtw = new(sw))
+            //    {
+            //        JsonSerializer serializer = new();
+            //        jtw.Formatting = Formatting.Indented;
+            //        serializer.Serialize(jtw, bats);
+            //    }
+            //}
+            //OR
+            File.WriteAllText(filePath, JsonConvert.SerializeObject(bats, Formatting.Indented));
+
+            /*
+             * Challenge 3:
+                Serialize (write) the list of superheroes to a json file
+            */
 
 
 
-                /*
-                 * Challenge 3:
-                    Serialize (write) the list of superheroes to a json file
-                */
+
+            /*
+                ╔═══════════════╗ 
+                ║ Deserializing ║
+                ╚═══════════════╝ 
+
+                Recreating the objects from the saved state (data) of objects
+
+            */
 
 
 
+            /*
 
-                /*
-                    ╔═══════════════╗ 
-                    ║ Deserializing ║
-                    ╚═══════════════╝ 
+                Challenge 4: deserialize the jla.json file into a list of superheroes
 
-                    Recreating the objects from the saved state (data) of objects
-
-                */
-
-
-
-                /*
-
-                    Challenge 4: deserialize the jla.json file into a list of superheroes
-
-                */
-            }
+            */
+        }
         }
 }
