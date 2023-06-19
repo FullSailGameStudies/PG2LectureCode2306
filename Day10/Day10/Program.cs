@@ -238,11 +238,28 @@ namespace Day10
 
             */
 
-
-
+            filePath = Path.Combine(directories, heroJsonFileName);
+            filePath = Path.Combine(directories, dc);
+            //Program defensively
+            if (File.Exists(filePath))
+            {
+                string batJsonText = File.ReadAllText(filePath);
+                try
+                {
+                    Superhero? theBat = JsonConvert.DeserializeObject<Superhero>(batJsonText);
+                    if (theBat != null)
+                    {
+                        Console.WriteLine($"{theBat.Name} ({theBat.Secret}) can do {theBat.Power}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
             /*
 
-                Challenge 4: deserialize the jla.json file into a list of superheroes
+                Challenge 4: deserialize the heroes.json file into a list of superheroes
 
             */
         }
