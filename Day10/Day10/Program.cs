@@ -223,6 +223,9 @@ namespace Day10
                 Serialize (write) the list of superheroes to a json file
             */
 
+            dc = Path.ChangeExtension(dc, "json");
+            filePath = Path.Combine(directories, dc);
+            File.WriteAllText(filePath, JsonConvert.SerializeObject(DC, Formatting.Indented));
 
 
 
