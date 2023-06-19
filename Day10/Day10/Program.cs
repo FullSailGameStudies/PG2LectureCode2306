@@ -61,10 +61,23 @@
 
             */
 
-            string directories = @"C:\temp\2212"; //use @ in front of the string to ignore escape sequences inside the string
+            string directories = @"C:\temp\2306"; //use @ in front of the string to ignore escape sequences inside the string
             string fileName = "tempFile.txt";
             string filePath = Path.Combine(directories, fileName); //use Path.Combine to get the proper directory separators
 
+            char delimiter = '^';
+            //1) open
+            using (StreamWriter sw = new StreamWriter(filePath))//file, memory, custom. IDisposable. call Dispose
+            {
+                //2) write to the file
+                sw.Write("Batman rules.");
+                sw.Write(delimiter);
+                sw.Write(15);
+                sw.Write(delimiter);
+                sw.Write(7.34);
+                sw.Write(delimiter);
+                sw.Write(true);
+            }//3) close the file
 
 
             /*
@@ -72,6 +85,23 @@
                     Create a List of Superhero.
                     Write the list to a CSV file             
             */
+            List<Superhero> DC = new List<Superhero>()
+            {
+                new Superhero(){ Name = "Batman", Secret = "Bruce Wayne", Power = Powers.Money },
+                new Superhero(){ Name = "Superman", Secret = "Clark Kent", Power = Powers.Jumping },
+                new Superhero(){ Name = "Wonder Woman", Secret = "Diana Prince", Power = Powers.Strength },
+                new Superhero(){ Name = "Aquaman", Secret = "Arthur Curry", Power = Powers.Swimming }
+            };
+            string dc = "heroes.csv";
+            char csv = '*';
+            filePath = Path.Combine(directories, dc);
+            using (StreamWriter sw = new StreamWriter(filePath))
+            {
+                foreach (var hero in DC)
+                {
+                    sw.WriteLine($"{hero.Name}{csv}{hero.Secret}{csv}{hero.Power}");
+                }
+            }
 
 
 
