@@ -148,7 +148,41 @@
                     Open the CSV file and read the data 
                     into a new list of superheroes
              
+
+                    create a superhero list
+                    check if the file is there
+                    if so, 
+                        open the file
+                        read the data
+                        split to get the array of hero strings
+                        loop over the hero strings
+                            split the hero string to get the hero data
+                            build a superhero with the hero data
+                            add the superhero to the list
             */
+            List<Superhero> dc2 = new();
+            filePath = Path.Combine(directories, dc);
+            if (File.Exists(filePath))
+            {
+                string dcText = File.ReadAllText(filePath);//Open, Read, Close the file
+                string[] dcData = dcText.Split('\n');
+                foreach (var dcItem in dcData)
+                {
+                    if (string.IsNullOrWhiteSpace(dcItem)) break;
+                    string[] heroData = dcItem.Split(csv);
+                    Superhero hero = new Superhero()
+                    {
+                        Name = heroData[0],
+                        Secret = heroData[1],
+                        Power = Enum.Parse<Powers>(heroData[2])
+                    };
+                    dc2.Add(hero);
+                }
+            }
+            foreach (var dcHero in dc2)
+            {
+                Console.WriteLine($"{dcHero.Name} ({dcHero.Secret}) can do {dcHero.Power}");
+            }
 
 
 
