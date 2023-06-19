@@ -239,7 +239,6 @@ namespace Day10
             */
 
             filePath = Path.Combine(directories, heroJsonFileName);
-            filePath = Path.Combine(directories, dc);
             //Program defensively
             if (File.Exists(filePath))
             {
@@ -262,6 +261,26 @@ namespace Day10
                 Challenge 4: deserialize the heroes.json file into a list of superheroes
 
             */
+            filePath = Path.Combine(directories, dc);
+            if (File.Exists(filePath))
+            {
+                string dcJsonText = File.ReadAllText(filePath);
+                try
+                {
+                    List<Superhero>? theHeroes = JsonConvert.DeserializeObject<List<Superhero>>(dcJsonText);
+                    if (theHeroes != null)
+                    {
+                        foreach (var dcHero in theHeroes)
+                        {
+                            Console.WriteLine($"{dcHero.Name} ({dcHero.Secret}) can do {dcHero.Power}");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
         }
         }
 }
