@@ -105,6 +105,26 @@
 
 
 
+            filePath = Path.Combine(directories, fileName);
+            if (File.Exists(filePath))
+            {
+                using (StreamReader sr = new StreamReader(filePath))
+                {
+                    string line = sr.ReadLine();
+                    string[] lineData = line.Split(delimiter);
+                    string d1 = lineData[0];
+                    int d2 = int.Parse(lineData[1]);
+                    double d3 = double.Parse(lineData[2]);
+                    bool d4 = bool.Parse(lineData[3]);
+                    foreach (var item in lineData)
+                    {
+                        Console.WriteLine(item);
+                    }
+                }
+            }
+            else
+                Console.WriteLine($"{filePath} could not be found.");
+
 
 
             /*
@@ -125,7 +145,8 @@
             /*
                 CHALLENGE 2:
 
-                    Open the CSV file and read the data into a new list of superheroes
+                    Open the CSV file and read the data 
+                    into a new list of superheroes
              
             */
 
